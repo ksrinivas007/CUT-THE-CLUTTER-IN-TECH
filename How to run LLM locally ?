@@ -1,0 +1,73 @@
+HOW to run LLM locally
+
+ 1. Install Ollama
+Windows / macOS / Linux
+
+Download from: https://ollama.com/download
+
+Or Linux command:
+
+curl -fsSL https://ollama.com/install.sh | sh
+
+ 2. Run LLaMA
+ollama run llama3
+
+
+You’ll enter an interactive chat.
+
+ Sample session with REALISTIC example output
+
+Below is exactly how your terminal will look when running LLaMA using Ollama:
+
+$ ollama run llama3
+
+>>> Hello, who are you?
+
+I am LLaMA 3, a large language model designed to assist with reasoning,
+question answering, creativity, and coding. How can I help you today?
+
+>>> Write a haiku about computers.
+
+Silent circuits hum  
+bits whisper through metal veins  
+thoughts born out of code.
+
+>>> Explain quantum physics simply.
+
+Quantum physics studies how tiny particles behave.
+At very small scales:
+- Particles act like waves
+- They can exist in many states at once (superposition)
+- They can be connected even far apart (entanglement)
+
+It’s like reality gets fuzzy and probabilistic.
+
+
+You can quit using:
+
+/bye
+
+ 3. Run a one-shot prompt (non-interactive)
+ollama run llama3 "Explain Python decorators in one sentence."
+
+Example output
+Python decorators are functions that wrap another function to modify or
+extend its behavior without changing its code.
+
+📌 Example using the Python API
+
+Python script:
+
+import requests
+
+resp = requests.post("http://localhost:11434/api/generate", json={
+    "model": "llama3",
+    "prompt": "Give me a funny fact about space."
+})
+
+print(resp.json()["response"])
+
+Sample output:
+A funny space fact: Astronauts say that space has a distinct smell,
+described as “seared steak” or “hot metal,” because of particles
+clinging to their suits after spacewalks.
